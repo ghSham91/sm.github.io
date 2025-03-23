@@ -1,0 +1,240 @@
+/* RESET / BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #000; /* fallback background color */
+  }
+  
+  /* CONTAINER */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* HEADER */
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    z-index: 999;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+  
+  .brand h1 {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .brand span {
+    font-weight: normal;
+  }
+  
+  /* NAVBAR */
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #f0b040;
+  }
+  
+  /* SOCIAL ICONS */
+  .social-icons a {
+    margin-left: 1rem;
+    display: inline-block;
+    transition: opacity 0.3s;
+  }
+  
+  .social-icons a:hover {
+    opacity: 0.7;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* HAMBURGER MENU (MOBILE ONLY) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+  }
+  
+  /* HERO SECTION */
+  
+  /* 
+    1) Desktop/Tablet background: swirl (without sword).
+    2) Full-height hero. 
+  */
+  .hero {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/Home-bg.jpg") no-repeat center center/cover;
+    position: relative;
+    margin-top: 70px; /* offset for fixed header */
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* HERO CONTENT */
+  .hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+    min-height: 80vh;
+    position: relative;
+  }
+  
+  /* MAILING LIST */
+  .mailing-list {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  
+  .mailing-list h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Georgia', serif;
+  }
+  
+  .mailing-list p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  
+  .signup-form input[type="email"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    flex: 1 1 auto;
+    min-width: 200px;
+  }
+  
+  .signup-form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #f0b040;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .signup-form button:hover {
+    background-color: #d99b36;
+  }
+  
+  /* FOOTER */
+  .footer {
+    background-color: #000;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
+  /* MEDIA QUERIES */
+  
+  /* Hide normal nav on tablet & below; show hamburger. */
+  @media (max-width: 992px) {
+    .navbar ul {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
+  }
+  
+  /* MOBILE (max-width: 768px) */
+  @media (max-width: 768px) {
+    /* Switch the hero background to the sword image */
+    .hero {
+      background: url("../img/mb-sword-bg.png") no-repeat center center/cover;
+    }
+  
+    .hero-content {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    /* Place mailing list above the sword background */
+    .mailing-list {
+      position: absolute;   /* so it sits on top of the background */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;          /* ensure it fits nicely on mobile screens */
+      max-width: 300px;
+      z-index: 2;          /* ensure it's above any overlay or background */
+    }
+  }
+  
+  /* Even smaller screens if needed (e.g. max-width: 480px) */
+  @media (max-width: 480px) {
+    .brand h1 {
+      font-size: 1.2rem;
+    }
+  
+    .mailing-list h2 {
+      font-size: 1.4rem;
+    }
+  }
+  
